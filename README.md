@@ -1,6 +1,6 @@
--- Glory Edition - ESP (Skeleton + Movable GUI)
+-- Glory Edition - ESP (Skeleton + Movable GUI) - GLORIUS GANG HUB title
 -- LocalScript (StarterPlayerScripts / StarterGui)
--- Features added in this version:
+-- Features:
 --  - Skeleton ESP (R15 & R6 support, draws bone lines)
 --  - Movable GUI: drag the menu by its title bar
 --  - Keeps previous features: Box, Tracer, Name, Distance, HealthBar, Chams, Rainbow, TeamCheck
@@ -246,10 +246,6 @@ local function getSkeletonPairs(char)
     local leftLeg = char:FindFirstChild("Left Leg") or char:FindFirstChild("LeftLeg")
     local rightLeg = char:FindFirstChild("Right Leg") or char:FindFirstChild("RightLeg")
     if torso and headR6 then
-        local tpos = torso.Position
-        local function addR6(a, b)
-            if a and b then table.insert(pairsOut, {a.Position, b.Position}) end
-        end
         if headR6 then table.insert(pairsOut, {headR6.Position, torso.Position}) end
         if leftArm and torso then table.insert(pairsOut, {leftArm.Position, torso.Position}) end
         if rightArm and torso then table.insert(pairsOut, {rightArm.Position, torso.Position}) end
@@ -377,7 +373,6 @@ local function drawSkeleton(cont, char)
             local b2 = Camera:WorldToViewportPoint(b3)
             local aOn = a2 and a2.Z > 0
             local bOn = b2 and b2.Z > 0
-            -- a2,b2 are Vector3; use X,Y
             pcall(function()
                 line.From = Vector2.new(a2.X, a2.Y)
                 line.To = Vector2.new(b2.X, b2.Y)
@@ -639,7 +634,7 @@ title.Name = "Title"
 title.Size = UDim2.new(1, -28, 0, 28)
 title.Position = UDim2.new(0, 14, 0, 12)
 title.BackgroundTransparency = 1
-title.Text = "Glory Edition - ESP Menu (P)"
+title.Text = "GLORIUS GANG HUB" -- <- Updated title as requested
 title.TextColor3 = Color3.new(1,1,1)
 title.Font = Enum.Font.SourceSansBold
 title.TextSize = 20
@@ -920,4 +915,4 @@ do
     end)
 end
 
-print("Glory Edition - ESP (Skeleton + Movable GUI) loaded. Press 'P' to open the menu. Drawing available:", UseDrawing)
+print("GLORIUS GANG HUB - ESP (Skeleton + Movable GUI) loaded. Press 'P' to open the menu. Drawing available:", UseDrawing)
